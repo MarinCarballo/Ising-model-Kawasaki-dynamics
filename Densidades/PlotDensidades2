@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+filename = 'C:/Users/anton/OneDrive/Escritorio/A.MarinCarballoCompu2324/A.MarinCarballoCompu2324/Voluntario1/Densidad.txt'
+data = pd.read_csv(filename, header=None, names=['densidad', 'error', 'y'])
+
+# Crear la gráfica
+plt.figure(figsize=(10, 6))
+plt.errorbar(data['y'], data['densidad'], yerr=data['error'], fmt='-', linewidth=1, capsize=5, elinewidth=2, label='Densidad')
+
+# Añadir etiquetas y título
+plt.xlabel('y')
+plt.ylabel('Densidad (ρ)')
+plt.title('Densidad ρ en función de la coordenada y')
+plt.legend()
+
+# Mostrar la gráfica
+plt.grid(True)
+plt.show()
